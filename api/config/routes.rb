@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     mount ActionCable.server => '/cable'
     namespace :v1 do
       resources :subjects, only: [:index]
+      resources :laboratories, only: [:index]
     end
   end
 end
