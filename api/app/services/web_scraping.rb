@@ -11,7 +11,7 @@ class WebScraping
       next if index < 1
 
       # 学科
-      subject_node = row.at(".head") 
+      subject_node = row.at(".head")
       if subject_node.present?
         subject_name = subject_node.text.strip
         subject = Subject.find_or_create_by(name: subject_name)
@@ -29,7 +29,10 @@ class WebScraping
       )
       # 研究室が登録されている場合は、登録者数を更新する
       if laboratory.persisted?
-        laboratory.update(registrants_str: columns[3].text.strip)
+        if laboratory.registrants_str != columns[3].text.strip
+          laboratory.update(registrants_str: columns[3].text.strip)
+          ActionCable.server.broadcast("check_count_channel_#{laboratory.id}", { registrants_str: columns[3].text.strip })
+        end
       end
     end
   end
