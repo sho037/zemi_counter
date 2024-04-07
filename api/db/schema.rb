@@ -11,16 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2024_04_07_101350) do
-  create_table "assignments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "laboratory_id", null: false
-    t.bigint "subject_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["laboratory_id", "subject_id"], name: "index_assignments_on_laboratory_id_and_subject_id", unique: true
-    t.index ["laboratory_id"], name: "index_assignments_on_laboratory_id"
-    t.index ["subject_id"], name: "index_assignments_on_subject_id"
-  end
-
   create_table "laboratories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.decimal "capacity", precision: 10, default: "0", null: false
@@ -28,6 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_07_101350) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "registrants_str"
+    t.bigint "subject_id"
+    t.index ["subject_id"], name: "index_laboratories_on_subject_id"
   end
 
   create_table "subjects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -37,6 +29,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_07_101350) do
     t.index ["name"], name: "index_subjects_on_name", unique: true
   end
 
-  add_foreign_key "assignments", "laboratories"
-  add_foreign_key "assignments", "subjects"
+  add_foreign_key "laboratories", "subjects"
 end

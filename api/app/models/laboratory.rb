@@ -1,6 +1,5 @@
 class Laboratory < ApplicationRecord
-  has_many :assignments
-  has_many :subjects, through: :assignments
+  has_many :subjects
   validates :name, presence: true
   validates :name, uniqueness: true
   validates :capacity, presence: true
