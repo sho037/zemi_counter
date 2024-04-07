@@ -14,6 +14,7 @@ RUN \
     apt-get update -y -qq ; apt-get install -y -qq --no-install-recommends \
     nano \
     sudo \
+    cron \
     ; \
     \
     # キャッシュ削除
@@ -47,8 +48,6 @@ RUN chmod +x /usr/local/bin/startContainer.sh ; \
 
 # 開発ユーザに切り替え
 USER $USERNAME
-
-ENV RAILS_ENV=development
 
 RUN bundle config set path 'vendor/bundle'
 

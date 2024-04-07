@@ -3,4 +3,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  namespace :api do
+    mount ActionCable.server => '/cable'
+    namespace :v1 do
+      resources :subjects, only: [:index]
+      resources :laboratories, only: [:index]
+    end
+  end
 end
