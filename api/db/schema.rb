@@ -11,15 +11,15 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2024_04_07_082813) do
-  create_table "laboratories", force: :cascade do |t|
+  create_table "laboratories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
-    t.decimal "capacity", default: "0.0", null: false
-    t.decimal "registrants", default: "0.0", null: false
+    t.decimal "capacity", precision: 10, default: "0", null: false
+    t.decimal "registrants", precision: 10, default: "0", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "subjects", force: :cascade do |t|
+  create_table "subjects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

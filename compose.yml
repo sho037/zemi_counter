@@ -20,6 +20,8 @@ services:
       - "5000:5000"
     volumes:
       - ./api:/usr/src/app
+    environment:
+      - RAILS_ENV=development
     depends_on:
       - db
       - redis

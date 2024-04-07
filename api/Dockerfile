@@ -48,8 +48,6 @@ RUN chmod +x /usr/local/bin/startContainer.sh ; \
 # 開発ユーザに切り替え
 USER $USERNAME
 
-ENV RAILS_ENV=development
-
 RUN bundle config set path 'vendor/bundle'
 
 # コンテナ起動時に実行するスクリプトを実行 \
