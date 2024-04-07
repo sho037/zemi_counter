@@ -1,5 +1,5 @@
 class Subject < ApplicationRecord
-  belongs_to :laboratory
+  has_many :laboratories
   validates :name, presence: true
   validates :name, uniqueness: true
 end
