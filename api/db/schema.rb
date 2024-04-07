@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_07_091530) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_07_101350) do
   create_table "assignments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "laboratory_id", null: false
     t.bigint "subject_id", null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_07_091530) do
     t.decimal "registrants", precision: 10, default: "0", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "registrants_str"
   end
 
   create_table "subjects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
