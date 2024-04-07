@@ -7,3 +7,6 @@ bundle install --gemfile /usr/src/app/Gemfile
 rails db:create
 rails db:migrate
 rails db:seed
+
+# cron設定
+bundle exec whenever --update-crontab
