@@ -14,6 +14,7 @@ RUN \
     apt-get update -y -qq ; apt-get install -y -qq --no-install-recommends \
     nano \
     sudo \
+    cron \
     ; \
     \
     # キャッシュ削除

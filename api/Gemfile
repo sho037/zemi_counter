@@ -53,3 +53,6 @@ gem "dotenv-rails"
 
 # Webスクレイピング用
 gem "mechanize"
+
+# CRONジョブ用
+gem "whenever", require: false
