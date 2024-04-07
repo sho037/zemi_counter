@@ -21,7 +21,14 @@ services:
     volumes:
       - ./api:/usr/src/app
     depends_on:
+      - db
       - redis
+
+  db:
+    image: "mysql:8"
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_DATABASE: "zemi_counter"
 
   redis:
     image: "redis:alpine"
