@@ -37,3 +37,10 @@ class WebScraping
     end
   end
 end
+
+namespace :web_scraping do
+  desc "Webページから情報を取得し、DBに保存し、WebSocketで通知する"
+  task check: :environment do
+    WebScraping.new.check
+  end
+end

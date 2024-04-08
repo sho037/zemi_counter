@@ -23,6 +23,9 @@ if [ -e "/usr/local/bin/createContainer.sh" ]; then
   rm -f /usr/local/bin/createContainer.sh
 fi
 
+# CRON 設定
+sudo service cron start
+
 # rails サーバの起動
 rm -f tmp/pids/server.pid
 rails s -p 5000 -b '0.0.0.0'
