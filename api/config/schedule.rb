@@ -18,7 +18,8 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+set :environment, "development"
 
 every 15.minutes do
-  runner "WebScraping.new.check"
+  rake "web_scraping:check"
 end

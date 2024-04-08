@@ -9,4 +9,4 @@ rails db:migrate
 rails db:seed
 
 # cron設定
-bundle exec whenever --update-crontab
+bundle exec whenever --update-crontab --set environment='development'
