@@ -23,6 +23,7 @@ export const Laboratory = () => {
         }}
       >
         <Typography variant="h4">現在の登録者数</Typography>
+        <Typography variant="h3">合計(ID,IC,IS,IM,IN)</Typography>
         <Typography variant="h1">{checkCount}</Typography>
       </Paper>
     </>
