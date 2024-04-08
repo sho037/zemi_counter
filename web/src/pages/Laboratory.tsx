@@ -31,6 +31,12 @@ export const Laboratory = () => {
     return () => clearTimeout(timer);
   }, [checkCount]);
 
+  // 15分ごとにページをリロードする
+  useEffect(() => {
+    const timer = setTimeout(() => window.location.reload(), 900000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Box
       sx={{
