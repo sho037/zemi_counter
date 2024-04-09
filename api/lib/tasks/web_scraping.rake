@@ -23,8 +23,6 @@ class WebScraping
       next if columns.empty?
       laboratory = Laboratory.find_or_create_by(
         name: columns[1].text.strip,
-        capacity: columns[2].text.strip,
-        registrants_str: columns[3].text.strip,
         subject: subject,
       )
       # 研究室が登録されている場合は、登録者数を更新する
@@ -33,6 +31,11 @@ class WebScraping
           laboratory.update(registrants_str: columns[3].text.strip)
           ActionCable.server.broadcast("check_count_channel_#{laboratory.id}", { registrants_str: columns[3].text.strip })
         end
+      else
+        laboratory.update(
+          capacity: columns[2].text.strip.to_i,
+          registrants_str: columns[3].text.strip,
+        )
       end
     end
   end
